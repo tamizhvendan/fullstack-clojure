@@ -9,7 +9,7 @@
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 (msg)]])
+   [:h3 (str "Code Sharing: [" (msg) "]")]])
 
 (defn start []
   (reagent/render-component [hello-world]

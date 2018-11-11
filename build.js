@@ -19,17 +19,20 @@ if (mainModule) {
 }
 
 sass.render({
-  file: './sass/style.scss',
+  file: './resources/public/sass/style.scss',
   outputStyle: 'compressed'
 }, function (err, result) {
-  if (err) return console.log(err);
+  if (err) {
+    console.log(err);
+    return -1;
+  }
   let hash = crypto.createHash('md5').setEncoding('hex');
   hash.write(result.css);
   hash.end();
   let styleCssName = `style.${hash.read().toUpperCase()}.css`;
-  let newCssFilePath = `./resources/public/css/${styleCssName}`;
+  let newCssFilePath = `./resources/public/css/compiled/${styleCssName}`;
   fs.writeFileSync(newCssFilePath, result.css);
   updateIndexHtml(
     new RegExp("/css/compiled/style.*.css"),
-    `/css/${styleCssName}`);
+    `/css/compiled/${styleCssName}`);
 });

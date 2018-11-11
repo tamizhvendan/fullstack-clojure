@@ -10,7 +10,7 @@ function updateIndexHtml(old_string, new_string) {
 
 updateIndexHtml(
   new RegExp("/css/compiled/style.*.css"),
-  `/css/style.css`);
+  `/css/compiled/style.css`);
 
 updateIndexHtml(
   new RegExp("js/compiled/main.*.js"),
