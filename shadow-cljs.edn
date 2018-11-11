@@ -13,17 +13,18 @@
  {:app {:target :browser
         :output-dir "resources/public/js/compiled"
         :asset-path "/js/compiled"
-
+        :module-hash-names true
+        :build-options {:manifest-name "manifest.json"}
         :modules
         {:main
          {:entries [shadow-cljs-demo.core]}}
 
         :devtools
-        ;; before live-reloading any code call this function
+                      ;; before live-reloading any code call this function
         {:before-load shadow-cljs-demo.core/stop
-         ;; after live-reloading finishes call this function
+                       ;; after live-reloading finishes call this function
          :after-load shadow-cljs-demo.core/start
-         ;; serve the public directory over http at port 8700
+                       ;; serve the public directory over http at port 8700
          :http-root    "resources/public"
          :http-port    8700
          :preloads     [devtools.preload]}}}}

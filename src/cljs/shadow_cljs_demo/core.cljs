@@ -4,12 +4,11 @@
 
 ;; define your app data so that it doesn't get over-written on reload
 
-(defonce app-state (atom {:text "Application"}))
+(defonce app-state (atom {:text "Hello World!"}))
 
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h2 "H2"]
    [:h3 (msg)]])
 
 (defn start []

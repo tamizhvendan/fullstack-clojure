@@ -9,9 +9,12 @@
 /log/
 /out/
 /resources/public/js/compiled/**
+/resources/public/css/compiled/**
 /target/
 pom.xml
 pom.xml.asc
 /dev-target
 .shadow-cljs
 node_modules
+/resources/public/css/style.*.css
+npm-debug.log

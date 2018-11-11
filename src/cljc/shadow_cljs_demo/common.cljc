@@ -3,4 +3,4 @@
 (defn msg
   "A function that is shared between clj and cljs"
   []
-  "Hello Clojure + ClojureScript!")
+  "A shared message!")

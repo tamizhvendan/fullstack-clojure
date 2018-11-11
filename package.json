@@ -1,8 +1,9 @@
 {
   "scripts": {
     "deps": "yarn install",
-    "watch": "shadow-cljs watch app;",
-    "release": "shadow-cljs release app;",
+    "watch": "shadow-cljs watch app & npm run css-build -- --watch",
+    "release": "shadow-cljs release app && node build.js && lein uberjar && node cleanup-build.js",
+    "css-build": "node-sass --omit-source-map-url resources/public/sass/style.scss resources/public/css/compiled/style.css",
     "server": "shadow-cljs server;",
     "clean": "rm -rf target; rm -rf public/js/compiled"
   },
@@ -10,6 +11,10 @@
     "create-react-class": "^15.6.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "shadow-cljs": "^2.0.80"
+    "shadow-cljs": "^2.7.2"
+  },
+  "devDependencies": {
+    "bulma": "^0.7.2",
+    "node-sass": "^4.10.0"
   }
 }
